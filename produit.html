@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Produit — E-Shop</title>
+
+    <!-- CSS GENERAL -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- CSS DU PRODUIT -->
+    <link rel="stylesheet" href="assets/css/produit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+    <!-- PRODUITS + LOGIQUE D'AFFICHAGE -->
+    <script src="assets/js/produits.js" defer></script>
+    <script src="assets/js/produit.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
+</head>
+<body>
+
+<header class="navbar">
+    <div class="logo">E-SHOP</div>
+    <i class="fa fa-bars menu-toggle" onclick="toggleMenu()"></i>
+
+
+     <nav class="nav-links" id="navLinks">
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produits</a>
+        <a href="panier.html">Panier</a>
+        <a href="ajouter-produit.html">Ajouter un produit</a>
+         <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<main class="product-container">
+
+    <!-- Image du produit -->
+    <div class="product-left">
+        <img id="prod-img" src="" alt="">
+    </div>
+
+    <!-- Infos -->
+    <div class="product-right">
+        <h1 id="prod-name"></h1>
+        <p id="prod-desc"></p>
+        <h2 id="prod-price"></h2>
+
+        <button id="btn-add" class="btn-add">Ajouter au panier</button>
+    </div>
+
+</main>
+
+<footer>
+    <p>© 2026 — E-SHOP | Créé par Hornel AMOUSSOUGA</p>
+</footer>
+
+</body>
+</html>

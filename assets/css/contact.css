@@ -1,0 +1,127 @@
+/* PAGE CONTACT */
+body {
+    background: #f4f4f4;
+}
+
+.contact-wrapper {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.contact-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+}
+
+.contact-card h1 {
+    margin-bottom: 10px;
+}
+
+.contact-card p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Form */
+.row {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.row label {
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.row label span {
+    color: red;
+}
+
+.row input,
+.row textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+
+.row input:focus,
+.row textarea:focus {
+    border-color: #ff7700;
+}
+
+/* Buttons */
+.actions {
+    display: flex;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn.primary {
+    background: #ff7700;
+    color: white;
+}
+
+.btn.primary:hover {
+    background: #e06600;
+}
+
+.btn.ghost {
+    background: white;
+    border: 1px solid #ff7700;
+    color: #ff7700;
+}
+
+.feedback {
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .actions {
+        flex-direction: column;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: #ff7700;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        z-index: 999;
+    }
+
+    .nav-links a {
+        color: white;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+}

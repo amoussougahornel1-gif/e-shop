@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Shop — Bienvenue</title>
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- ICON -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- JS PRODUITS -->
+    <script src="assets/js/produits.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="logo">E-SHOP</div>
+        <i class="fa fa-bars menu-toggle" onclick="toggleMenu()"></i>
+
+
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html" class="active">Accueil</a>
+            <a href="produits.html">Produits</a>
+            <a href="panier.html">Panier</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🔥 Promo Spéciale — Jusqu’à -50%</h1>
+            <p>Découvrez nos meilleurs produits au meilleur prix !</p>
+            <a href="produits.html" class="btn">Voir les Produits</a>
+        </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section class="categories">
+        <h2>Catégories</h2>
+
+        <div class="cat-grid">
+            <div class="cat-card">
+                <img src="assets/img/cart1.jpg" alt="">
+                <p>Technologie</p>
+            </div>
+            <div class="cat-card">
+                <img src="assets/img/cart2.jpeg" alt="">
+                <p>Mode</p>
+            </div>
+            <div class="cat-card">
+                <img src="assets/img/cart3.jpeg" alt="">
+                <p>Maison</p>
+            </div>
+            <div class="cat-card">
+                <img src="assets/img/cart4.jpg" alt="">
+                <p>Beauté</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUITS EN VEDETTE (DYNAMIQUE) -->
+    <section class="featured">
+        <h2>🔥 Produits en Vedette</h2>
+
+        <div id="produits-vedette" class="product-grid">
+            <!-- LES PRODUITS DYNAMIQUES SERONT INSÉRÉS ICI PAR JS -->
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 — E-SHOP | Créé par Hornel AMOUSSOUGA</p>
+    </footer>
+
+</body>
+</html>

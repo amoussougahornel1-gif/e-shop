@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter un Produit — E-SHOP</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/ajouter-produit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+    <script src="assets/js/ajouter-produit.js" defer></script>
+    <script src="assets/js/app.js" defer></script>
+
+    <script>
+      if (localStorage.getItem("admin") !== "true") {
+      alert("Accès réservé au propriétaire du site.");
+      window.location = "produits.html";
+  }
+</script>
+
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="logo">E-SHOP</div>
+    <i class="fa fa-bars menu-toggle" onclick="toggleMenu()"></i>
+
+
+    <nav class="nav-links" id="navLinks">
+
+        <a href="index.html">Accueil</a>
+        <a href="produits.html">Produits</a>
+        <a href="panier.html">Panier</a>
+        <a href="ajouter-produit.html" class="active">Ajouter un produit</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+</header>
+
+<section class="form-section">
+    <h1>Ajouter un Nouveau Produit</h1>
+
+    <form id="addForm" class="form-box">
+        
+        <label>Nom du produit :</label>
+        <input type="text" id="nom" required>
+
+        <label>Prix (FCFA) :</label>
+        <input type="number" id="prix" required>
+
+        <label>Description :</label>
+        <textarea id="description" rows="4" required></textarea>
+
+        <label>Image du produit :</label>
+        <input type="file" id="image" accept="image/*" required>
+
+        <button type="submit" class="btn-submit">Enregistrer</button>
+
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 — E-SHOP | Créé par Hornel AMOUSSOUGA</p>
+</footer>
+
+</body>
+</html>

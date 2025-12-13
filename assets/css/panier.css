@@ -1,0 +1,124 @@
+/* ---------------------------------------------------- */
+/* PANIER */
+/* ---------------------------------------------------- */
+
+body {
+    background: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.panier-container {
+    flex: 1;
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.panier-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* LISTE DES ARTICLES */
+.cart-list {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+.cart-item {
+    display: grid;
+    grid-template-columns: 80px 1fr 120px 40px;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.cart-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.cart-item h3 {
+    font-size: 1rem;
+}
+
+.cart-item .price {
+    font-weight: bold;
+    color: #ff7700;
+}
+
+.btn-delete {
+    background: red;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    background: darkred;
+}
+
+/* TOTAL */
+.cart-total {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.btn-pay {
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: #ff7700;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.btn-pay:hover {
+    background: #e06600;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .cart-item {
+        grid-template-columns: 60px 1fr 80px 30px;
+    }
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: #ff7700;
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        z-index: 999;
+    }
+
+    .nav-links a {
+        color: white;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+}
