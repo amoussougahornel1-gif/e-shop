@@ -29,10 +29,18 @@
 <header class="navbar">
     <div class="logo">E-SHOP</div>
     <i class="fa fa-bars menu-toggle" onclick="toggleMenu()"></i>
+  
 
 
     <!-- Icône admin (discret) -->
     <i class="fa fa-user-shield admin-login" onclick="loginAdmin()"></i>
+    <!-- Déconnexion admin (cachée par défaut) -->
+<i class="fa fa-sign-out-alt admin-logout" 
+   id="logoutAdmin" 
+   onclick="logoutAdmin()" 
+   style="display:none;"
+   title="Déconnexion"></i>
+
 
         <nav class="nav-links" id="navLinks">
         <a href="index.html">Accueil</a>
