@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const totalEl = document.getElementById("total");
     const orderBtn = document.getElementById("orderWhatsApp");
 
-    const whatsappNumber = "0146208980"; // MET LE NUMÉRO DE LA VENDEUSE
+    const whatsappNumber = "2290146208980"; // MET LE NUMÉRO DE LA VENDEUSE
 
     function formatPrix(n) {
         return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
