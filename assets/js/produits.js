@@ -1,45 +1,58 @@
 /* ------------------------------------------------------
-   GESTION DYNAMIQUE DES PRODUITS
+   1. GESTION DES DONNÉES
 ------------------------------------------------------ */
 
-// Produits de base (tu peux laisser vide si tu veux commencer à 0)
-const produitsData = [
-    // Exemple (si tu veux remettre des produits par défaut, ajoute ici)
-    // { id: 1, nom: "Casque Bluetooth", prix: 12500, img: "assets/img/p1.jpg", desc: "Casque bluetooth puissant." }
-];
+// On commence avec une liste vide (plus de produits forcés)
+const produitsData = [];
 
-// Produits ajoutés par l'utilisateur
+// On récupère uniquement les produits ajoutés via le formulaire admin
 const storedProducts = JSON.parse(localStorage.getItem("produits") || "[]");
 
-// Fusion propre (produits système + produits utilisateur)
+// Fusion (qui contiendra uniquement tes produits ajoutés)
 const produits = [...produitsData, ...storedProducts];
 
 /* ------------------------------------------------------
-   FORMATAGE PRIX (12 500)
+   2. UTILITAIRES
 ------------------------------------------------------ */
 function formatPrix(n) {
     return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
 /* ------------------------------------------------------
-   RENDRE DYNAMIQUEMENT LES PRODUITS
+   3. RENDRE DYNAMIQUEMENT LES PRODUITS
 ------------------------------------------------------ */
 function renderProducts(containerId) {
     const container = document.getElementById(containerId);
-    if (!container) return; // page ne contient pas ce conteneur
+    if (!container) return; 
 
     container.innerHTML = "";
 
+    // Si aucun produit n'a été ajouté par l'admin
     if (produits.length === 0) {
         container.innerHTML = `<p class="no-product">Aucun produit disponible pour le moment.</p>`;
         return;
     }
 
+    // Vérifier si le mode admin est activé
+    const isAdmin = localStorage.getItem("admin") === "true";
+
     produits.forEach(p => {
         const card = document.createElement("div");
         card.className = "product-card";
 
+        // Boutons admin (Edit / Delete)
+        let adminButtons = "";
+        if (isAdmin) {
+            adminButtons = `
+                <div class="admin-actions" style="display: flex; justify-content: flex-end; gap: 5px; padding: 5px;">
+                    <button class="btn-edit" onclick="editProduct(${p.id})" style="background:#3498db; color:#fff; border:none; cursor:pointer; padding:5px 8px; border-radius:3px;"><i class="fa fa-edit"></i></button>
+                    <button class="btn-delete" onclick="deleteProduct(${p.id})" style="background:#e74c3c; color:#fff; border:none; cursor:pointer; padding:5px 8px; border-radius:3px;"><i class="fa fa-trash"></i></button>
+                </div>
+            `;
+        }
+
         card.innerHTML = `
+            ${adminButtons}
             <img src="${p.img}" alt="${p.nom}">
             <h3>${p.nom}</h3>
             <p class="price">${formatPrix(p.prix)} FCFA</p>
@@ -51,16 +64,30 @@ function renderProducts(containerId) {
 }
 
 /* ------------------------------------------------------
-   RETOURNER PRODUIT PAR ID
+   4. FONCTIONS ADMIN
 ------------------------------------------------------ */
-function getProductById(id) {
-    return produits.find(p => Number(p.id) === Number(id));
-}
+
+// SUPPRIMER
+window.deleteProduct = function(id) {
+    if (confirm("Voulez-vous vraiment supprimer ce produit ?")) {
+        let stored = JSON.parse(localStorage.getItem("produits") || "[]");
+        // On garde tout sauf celui qui a cet ID
+        let nouvelleListe = stored.filter(p => p.id !== id);
+        
+        localStorage.setItem("produits", JSON.stringify(nouvelleListe));
+        location.reload(); 
+    }
+};
+
+// MODIFIER
+window.editProduct = function(id) {
+    window.location.href = `ajouter-produit.html?edit=${id}`;
+};
 
 /* ------------------------------------------------------
-   CHARGEMENT AUTOMATIQUE SUR LES PAGES
+   5. CHARGEMENT
 ------------------------------------------------------ */
 document.addEventListener("DOMContentLoaded", () => {
-    renderProducts("liste-produits");      // liste page produits
-    renderProducts("produits-vedette");    // page d'accueil
+    renderProducts("liste-produits");
+    renderProducts("produits-vedette");
 });

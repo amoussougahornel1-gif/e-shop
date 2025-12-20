@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const resetBtn = document.getElementById("resetBtn");
 
     // ⚠️ MET ICI LE NUMÉRO DU VENDEUR (format international sans +)
-    const whatsappNumber = "229XXXXXXXX"; // Exemple : 22962541278
+    const whatsappNumber = "2290146208980"; // Exemple : 22962541278
 
     form.addEventListener("submit", (e) => {
         e.preventDefault();
